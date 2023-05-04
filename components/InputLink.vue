@@ -1,6 +1,7 @@
 <template>
-  <article class="w-full">
-    <form @submit.prevent="fetchLinkTitle">
+  <article class="w-full flex flex-column">
+    <label for="InputLink" class="text-primary pb-1">InputLink</label>
+    <form id="InputLink" @submit.prevent="fetchLinkTitle" class="flex flex-column">
       <span class="p-input-icon-right w-full relative">
         <i
           @click="clearLink"

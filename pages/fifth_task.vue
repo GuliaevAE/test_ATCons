@@ -1,6 +1,6 @@
 <template>
   
-    <section>
+    <section class="m-3">
       <TableWithSerch />
     </section>
 </template>

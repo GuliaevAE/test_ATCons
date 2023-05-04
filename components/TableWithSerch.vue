@@ -1,5 +1,5 @@
 <template>
-  <article class="w-full">
+  <article class="w-full ">
     <DataTable
       :value="filteredProducts"
       paginator
@@ -8,7 +8,9 @@
       :rows="5"
       :rowsPerPageOptions="[5, 10, 20, 50]"
       selectionMode="multiple"
-      class="max-h-screen"
+      scrollable
+      scrollHeight="flex"
+      class="DataTable"
     >
       <template #header>
         <div class="flex align-items-center justify-content-between gap-2">
@@ -233,4 +235,5 @@ onMounted(() => {
 </script>
 
 <style>
+
 </style>

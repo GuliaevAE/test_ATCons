@@ -1,9 +1,11 @@
 <template>
-  <main class="h-screen relative gap-2 bg-primary">
-    <nav class="w-full align-self-start pb-6">
+  <main class="h-screen flex flex-column bg-primary">
+    <nav class="w-full ">
       <TabMenu :model="items" />
     </nav>
-    <Nuxt class="max-w-max mx-auto"/>
+    <div class="flex-1 w-full h-auto flex justify-content-center align-items-center">
+      <Nuxt class="max-w-full max-h-full " />
+    </div>
   </main>
 </template>
 

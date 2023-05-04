@@ -3,29 +3,33 @@
 
 
 <template>
-  <article class="w-full flex">
-    <span>
-      <MultiSelect
-        v-model="selectedCities"
-        display="chip"
-        :options="cities"
-        optionLabel="name"
-        placeholder="Select Cities"
-        class="w-full md:w-20rem"
-      >
-        <template #option="slotProps">
-          <div class="flex justify-content-between w-full">
-            <div>{{ slotProps.option.name }}</div>
-            <i
-              v-if="slotProps.option.id===1 && selectedCities.length"
-              @click.prevent="clearSelected"
-              class="pi pi-delete-left"
-              style="font-size: 2rem"
-            ></i>
-          </div>
-        </template>
-      </MultiSelect>
-    </span>
+  <article class="w-full flex flex-column">
+    <Label for="MultiSelector" class="text-primary pb-1">MultiSelector</Label>
+    <div id="MultiSelector" class="w-full flex ">
+      <span class="w-full">
+        <MultiSelect
+          v-model="selectedCities"
+          display="chip"
+          :options="cities"
+          optionLabel="name"
+          placeholder="Select Cities"
+          class="w-full "
+        >
+          <template #option="slotProps">
+            <div class="flex justify-content-between w-full">
+              <div>{{ slotProps.option.name }}</div>
+              <i
+                v-if="slotProps.option.id===1 && selectedCities.length"
+                @click.prevent="clearSelected"
+                class="pi pi-delete-left"
+                style="font-size: 2rem"
+              ></i>
+            </div>
+          </template>
+        </MultiSelect>
+      </span>
+    </div>
+   
   </article>
 </template>
 
@@ -53,5 +57,6 @@ const selectedCities = ref<Icity[]>([]);
 // До конца не смог разобраться в primeVue, в частности, с отдельными темплейтами
 // По какой-то непонятной причине они у меня работают не все
 // Поэтому, был выбран немного костыльный, но рабочий вариант с setTimeout с нулевым временем
+
 const clearSelected = () => setTimeout(() => (selectedCities.value = []));
 </script>
