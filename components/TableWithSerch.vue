@@ -8,15 +8,18 @@
       :rows="5"
       :rowsPerPageOptions="[5, 10, 20, 50]"
       selectionMode="multiple"
-    
-      
       class="max-h-screen"
     >
       <template #header>
         <div class="flex align-items-center justify-content-between gap-2">
           <div class="p-inputgroup w-full">
             <div class="card flex justify-content-center relative">
-              <Button @click="toggleOverlayPanel" icon="pi pi-sliders-v" severity="success" class="bg-green-500 relative" />
+              <Button
+                @click="toggleOverlayPanel"
+                icon="pi pi-sliders-v"
+                severity="success"
+                class="bg-green-500 relative"
+              />
               <OverlayPanel ref="refOverlayPanel" class="absolute top-100 left-0">
                 <MultiSelect
                   v-model="serchingColumns"
@@ -46,9 +49,9 @@
           />
         </div>
       </template>
-      <Column  v-if="visibleColumns.includes('Code')" sortable field="code" header="Code"></Column>
-      <Column  v-if="visibleColumns.includes('Name')" sortable field="name" header="Name"></Column>
-      <Column  v-if="visibleColumns.includes('Image')" sortable header="Image">
+      <Column v-if="visibleColumns.includes('Code')" sortable field="code" header="Code"></Column>
+      <Column v-if="visibleColumns.includes('Name')" sortable field="name" header="Name"></Column>
+      <Column v-if="visibleColumns.includes('Image')" sortable header="Image">
         <template #body="slotProps">
           <img
             :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`"
@@ -58,7 +61,7 @@
         </template>
       </Column>
       <Column v-if="visibleColumns.includes('Price')" sortable field="price" header="Price">
-        <template #body="slotProps">{{ slotProps.data.price }}</template>
+        <template #body="slotProps">${{ slotProps.data.price }}.00</template>
       </Column>
       <Column
         v-if="visibleColumns.includes('Category')"
@@ -188,30 +191,44 @@ const serchFormSubmit = e => {
 };
 
 onMounted(() => {
-  products.value.push({
-    id: "1000",
-    code: "f230fh0g3",
-    name: "Bamboo Watch",
-    description: "Product Description",
-    image: "bamboo-watch.jpg",
-    price: 65,
-    category: "Accessories",
-    quantity: 24,
-    inventoryStatus: "INSTOCK",
-    rating: 5
-  });
-  products.value.push({
-    id: "1001",
-    code: "f230fh0g3",
-    name: "Black Watch",
-    description: "Product Description",
-    image: "bamboo-watch.jpg",
-    price: 72,
-    category: "Accessories",
-    quantity: 24,
-    inventoryStatus: "LOWSTOCK",
-    rating: 4
-  });
+  products.value.push(
+    {
+      id: "1000",
+      code: "f230fh0g3",
+      name: "Bamboo Watch",
+      description: "Product Description",
+      image: "bamboo-watch.jpg",
+      price: 65,
+      category: "Accessories",
+      quantity: 24,
+      inventoryStatus: "INSTOCK",
+      rating: 5
+    },
+    {
+      id: "1001",
+      code: "f230fh0g3",
+      name: "Black Watch",
+      description: "Product Description",
+      image: "black-watch.jpg",
+      price: 72,
+      category: "Accessories",
+      quantity: 24,
+      inventoryStatus: "LOWSTOCK",
+      rating: 4
+    },
+    {
+      id: "1002",
+      code: "f230fh0g3",
+      name: "Blue Band",
+      description: "Product Description",
+      image: "blue-band.jpg",
+      price: 79,
+      category: "Fitness",
+      quantity: 24,
+      inventoryStatus: "LOWSTOCK",
+      rating: 3
+    }
+  );
 });
 </script>
 

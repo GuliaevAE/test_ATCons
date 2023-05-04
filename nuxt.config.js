@@ -49,13 +49,17 @@ export default {
     proxy: true, // Used as fallback if no runtime config is provided
   },
   proxy: {
-    '/proxy/': {
-      target: 'https://jsonplaceholder.typicode.com/',
-      pathRewrite: { '^/api/': '/posts/1' }
-    },
     '/api1/': {
       target: 'https://docs.gitlab.com/ee/topics/gitlab_flow.html',
       pathRewrite: { '^/api1/': '' }
+    },
+    '/api2/': {
+      target: 'https://jsonplaceholder.typicode.com',
+      pathRewrite: { '^/api2/': '' }
+    },
+    '/api3/': {
+      target: 'https://www.youtube.com',
+      pathRewrite: { '^/api3/': '' }
     },
 
   },

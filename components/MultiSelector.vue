@@ -48,5 +48,10 @@ const cities = ref<Icity[]>([
 
 const selectedCities = ref<Icity[]>([]);
 
+
+///////Поснение
+// До конца не смог разобраться в primeVue, в частности, с отдельными темплейтами
+// По какой-то непонятной причине они у меня работают не все
+// Поэтому, был выбран немного костыльный, но рабочий вариант с setTimeout с нулевым временем
 const clearSelected = () => setTimeout(() => (selectedCities.value = []));
 </script>

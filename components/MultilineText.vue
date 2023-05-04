@@ -15,8 +15,6 @@
 <script setup lang="ts">
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
-import ColumnGroup from "primevue/columngroup"; // optional
-import Row from "primevue/row";
 import { ref, onMounted } from "vue";
 import { apiResult } from "../dataForHelp";
 
@@ -27,7 +25,7 @@ const columns = [
   { field: "category", header: "Category" }
 ];
 
-const response = () => apiResult.replaceAll("[", "\n[");
-console.log(DataTableValue.value);
+
+const response = () => apiResult.split('[').join('\n[');
 DataTableValue.value.push({ name: response() });
 </script>
